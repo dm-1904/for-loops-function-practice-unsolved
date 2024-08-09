@@ -9,7 +9,9 @@
 // Phil's Account Object
 // ]
 
-export function getAllAccountsWithSumsOfDepositsLess2000(array) {}
+export function getAllAccountsWithSumsOfDepositsLess2000(array) {
+  
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-13"
