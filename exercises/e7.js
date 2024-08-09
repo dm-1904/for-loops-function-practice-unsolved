@@ -18,6 +18,14 @@
 //   { id: 5, name: "Phil", balance: 18, deposits: [100, 18], withdrawals: [100] },
 // ];
 
+// const bankAccountsNoPositiveBalance = [
+//   { id: 1, name: "Susan", balance: -100.32 },
+//   { id: 2, name: "Morgan", balance: -1100.0 },
+//   { id: 3, name: "Joshua", balance: -18456.57 },
+//   { id: 4, name: "Candy", balance: 0.0 },
+//   { id: 5, name: "Phil", balance: -18 },
+// ];
+
 
 // EXERCISE 7
 // Return an array with a bank account object with the lowest balance but not broke ( balance > 0 )
@@ -29,27 +37,31 @@
   let account = Infinity
   let obj
   let arr = []
-  for(let i = 1; i < array.length; i++) {
+  for(let i = 0; i < array.length; i++) {
     let el = array[i]
+
     if((el.balance < account) && (el.balance > 0)) {
+      account = el.balance
       obj = el
+      // console.log(arr)
     }
   }
-  if(obj != undefined) {
-    arr.push(obj)
-    console.log(arr)
+  if(obj === undefined) {
     return arr
   } else {
     arr.push(obj)
-  console.log(arr)
-  return arr
+    return arr
   }
+
+
   }
 
 
 
 
 // getClientWithLeastPositiveBalance(bankAccounts)
+// getClientWithLeastPositiveBalance(bankAccountsNoPositiveBalance)
+
 
 
 // === TEST YOURSELF ===
