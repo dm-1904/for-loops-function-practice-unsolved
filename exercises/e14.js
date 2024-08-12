@@ -25,7 +25,34 @@ const bankAccounts = [
 // Array example: bankAccounts in /data/data.js
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
- function getClientsWithWrongBalance(array) {
+// Inputs: array of accounts, Output: array of wrong accounts
+
+//declaring a new array
+
+// looping over the input accounts
+  //sum our deposits& withdrawls
+  // compare to balance
+  // if equal, continue
+  // if not, push into array
+
+export function getClientsWithWrongBalance(array) {
+  const badAccounts = [];
+  let depositSum;
+  let withdrawSum;
+  
+  for(let i = 0; i < array.length; i++){
+    let account = array[i];
+    depositSum = (account.deposits || []).reduce((acc, value) => acc + value, 0);
+    withdrawSum = (account.withdrawals || []).reduce((acc, value) => acc + value, 0);
+    if(depositSum - withdrawSum !== account.balance) {
+      badAccounts.push(account)
+    }
+  }
+  return badAccounts;
+}
+
+
+ function OLDgetClientsWithWrongBalance(array) {
   let arr = []
   let depositSum
 

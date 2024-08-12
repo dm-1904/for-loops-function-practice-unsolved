@@ -1,3 +1,8 @@
+const flatArraysData = [
+  ["Yay", "!", "this"],
+  ["works", "as", "expected", "!"],
+];
+
 
 // EXERCISE 16
 // Please, read the exercise-info/flat.md to get the initial data of what is the expected result of this exercise.
@@ -5,11 +10,19 @@
 // flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']]) => ['d', 'r', 'z', 'b', 'f', 'y']
 // NOTE: You can NOT use the array.flat() method in your code
 
-export function flatArrays(array) {
-  // Your code goes here...
+// careful with your pushing and storing/passing of the processed array.
+// closure can help
+
+ function flatArrays(array) {
+  // create a new flat array
+   // iterate over the input array
+   // if the ele is not an array, push
+   // if the ele is an array, recurse
+  
 
 }
 
+flatArrays(flatArraysData)
 
 
 // === TEST YOURSELF ===
