@@ -29,37 +29,30 @@ const bankAccounts = [
 // Phil's Account Object
 // ]
 
- function getAllAccountsWithSumsOfDepositsLess2000(array) {
+export  function getAllAccountsWithSumsOfDepositsLess2000(array) {
   let arr = []
-  let sum = 0
   for(let i = 0; i < array.length; i++) {
     let el = array[i]
     let dep = el.deposits
-    // console.log(dep)
-      // dep prints all of the deposit arrays
     if(dep === undefined) {
       arr.push(el)
+      continue;
     }
-    if(dep != undefined) {
+    let sum = 0
       for(let j = 0; j < dep.length; j++){
         let ele = dep[j]
         sum+=ele
-        console.log(ele)
-          // ele prints all numbers inside the arrays including 100 & 18 in "Phil" object
-      }
-      if(sum < 2000) {
-        arr.push(el)
-        // console.log(el)
-          // only prints 'susan' and 'morgan' objects
-      }
-    }
+
+
+        }
+        if(sum < 2000) { arr.push(el)}
+
   }
-  // console.log(arr)
-    // prints susan, morgan, and candy objects but not phil
+
   return arr
 }
 
-//will not return "Phil object"
+
 
 getAllAccountsWithSumsOfDepositsLess2000(bankAccounts)
 
