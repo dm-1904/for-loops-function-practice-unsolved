@@ -36,60 +36,25 @@ const bankAccounts = [
   // if not, push into array
 
 export function getClientsWithWrongBalance(array) {
-  const badAccounts = [];
-  let depositSum;
-  let withdrawSum;
-  
-  for(let i = 0; i < array.length; i++){
-    let account = array[i];
-    depositSum = (account.deposits || []).reduce((acc, value) => acc + value, 0);
-    withdrawSum = (account.withdrawals || []).reduce((acc, value) => acc + value, 0);
-    if(depositSum - withdrawSum !== account.balance) {
-      badAccounts.push(account)
+  const wrongBalance = []
+  for (let user of array) {
+    let depositBalance = 0
+    let withdrawalsBalance = 0
+
+    if(user.deposits){
+      for(let deposit of user.deposits) {
+        depositBalance += +deposit
+      }
     }
   }
-  return badAccounts;
+  if(depositBalance - withdrawalsBalance !== user.balance) {
+    wrongBalance.push(user)
+  }
+  return wrongBalance
 }
 
 
- function OLDgetClientsWithWrongBalance(array) {
-  let arr = []
-  let depositSum
 
-  for(let i = 0; i < array.length; i++) {
-    let el = array[i]
-    let dep = el.deposits
-    console.log(el)
-    if(dep != undefined) {
-      for(let j = 0; j < dep.length; j++) {
-        let ele = dep[j]
-        depositSum+=ele
-      }
-    }
-    if (depositSum - helper(array) != el.balance) {
-      arr.push(el)
-    }
-    // console.log(arr)
-    return arr
-    }
-  }
-
-
-function helper(array) {
-  let withdrawSum
-  for(let i = 0; i < array.length; i++) {
-    let el = array[i]
-    let wit = el.withdrawals
-    if (wit != undefined) {
-      for(let j = 0; j < wit.length; j++) {
-        let ele = wit[j]
-        withdrawSum+=ele
-      }
-    }
-
-  }
-  return withdrawSum
-}
 
 getClientsWithWrongBalance(bankAccounts)
 

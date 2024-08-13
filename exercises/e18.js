@@ -7,13 +7,14 @@
 export function joinToString(array, separator) {
   let str = ''
   for(let i = 0; i < array.length; i++) {
-    let el = array[i]
-    str+=el + separator
+    if(i !== array.length -1) {
+      str += array[i] + separator
+    } else str += array[i]
   }
-  return str.slice(0, str.length-1)
+  return str 
 }
 
-// passed all 
+// passed all
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-18"
