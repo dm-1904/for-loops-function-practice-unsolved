@@ -1,7 +1,4 @@
-// const flatArraysData = [
-//   ["Yay", "!", "this"],
-//   ["works", "as", "expected", "!"],
-// ];
+
 
 
 // EXERCISE 16
@@ -13,28 +10,18 @@
 // careful with your pushing and storing/passing of the processed array.
 // closure can help
 
- export function flatArrays(array) {
-  // create a new flat array
-   // iterate over the input array
-   // if the ele is not an array, push
-   // if the ele is an array, recurse
+export function flatArrays(array) {
     let flattenArray = []
-
     for(let el of array) {
-      if(el === typeof []){
-        for(let innerEl of array){
+      if(typeof el === 'object'){
+        for(let innerEl of el){
           flattenArray.push(innerEl)
         }
-      } else {
-        flattenArray.push(el)
-      }
-
+      } else flattenArray.push(el)
     }
     return flattenArray
-
 }
 
-// flatArrays(flatArraysData)
 
 
 // === TEST YOURSELF ===
