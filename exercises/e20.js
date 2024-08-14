@@ -28,7 +28,7 @@ export function separateNamesWithAFromRest(array) {
 
 
 
-// separateNamesWithAFromRest(classSeatsFlattened)
+
 
 
 // === TEST YOURSELF ===
